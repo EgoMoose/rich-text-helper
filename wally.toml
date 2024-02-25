@@ -6,7 +6,6 @@ registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
 license = "MIT"
 ignore = ["test", "assets"]
-private = true
 
 [dependencies]
 Sift = "csqrl/sift@0.0.8"
