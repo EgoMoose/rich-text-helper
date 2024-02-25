@@ -4,6 +4,7 @@ A Luau package for interpreting and modifying rich text in Roblox
 
 Get it here:
 
+* [Wally](https://wally.run/package/egomoose/rich-text-helper)
 * [Releases](https://github.com/EgoMoose/rich-text-helper/releases)
 
 ## API
