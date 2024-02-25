@@ -13,5 +13,13 @@
 		"editor.defaultFormatter": "JohnnyMorganz.stylua"
 	},
 
-	"stylua.targetReleaseVersion": "latest"
+	"stylua.targetReleaseVersion": "latest",
+
+	"cSpell.words": [
+		"apos",
+		"flattend",
+		"smallcaps",
+		"strikethrough",
+		"unflattened"
+	],
 }
