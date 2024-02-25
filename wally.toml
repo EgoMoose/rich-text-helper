@@ -1,0 +1,15 @@
+[package]
+name = "egomoose/rich-text-helper"
+description = "https://github.com/EgoMoose/rich-text-helper"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+license = "MIT"
+ignore = ["test", "assets"]
+private = true
+
+[dependencies]
+Sift = "csqrl/sift@0.0.8"
+
+[dev-dependencies]
+TestEZ = "roblox/testez@0.4.1"

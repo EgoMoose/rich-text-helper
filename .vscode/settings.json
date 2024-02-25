@@ -1,0 +1,17 @@
+{
+	"luau-lsp.sourcemap.rojoProjectFile": "test.project.json",
+	"luau-lsp.types.definitionFiles": [
+		".vscode/definitions/testez.d.lua"
+	],
+
+	"[lua]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "JohnnyMorganz.stylua"
+	},
+	"[luau]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "JohnnyMorganz.stylua"
+	},
+
+	"stylua.targetReleaseVersion": "latest"
+}

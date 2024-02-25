@@ -1,0 +1,30 @@
+{
+	"name": "rich-text-helper",
+	"tree": {
+		"$className": "DataModel",
+		"ReplicatedStorage": {
+			"$className": "ReplicatedStorage",
+			"Packages": {
+				"$path": "Packages",
+				"RichTextHelper": {
+					"$path": "src"
+				}
+			},
+			"DevPackages": {
+				"$path": "DevPackages"
+			}
+		},
+		"ServerScriptService": {
+			"$className": "ServerScriptService",
+			"Debug": {
+				"$path": "test/Debug.server.lua",
+				"$properties": {
+					"Disabled": true
+				}
+			},
+			"TestRunner": {
+				"$path": "test/TestRunner.server.lua"
+			}
+		}
+	}
+}
