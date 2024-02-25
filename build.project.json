@@ -3,7 +3,7 @@
 	"tree": {
 		"$className": "ModuleScript",
 		"$properties": {
-			"Source": "return require(script.Packages._TargetPackage)"
+			"Source": "--!strict\n\nlocal RichTextHelper = require(script.Packages._TargetPackage)\n\nexport type ParsedRichText = RichTextHelper.ParsedRichText\n\nreturn RichTextHelper"
 		},
 		"Packages": {
 			"$path": "Packages",
