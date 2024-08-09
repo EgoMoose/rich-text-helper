@@ -1,11 +1,12 @@
 [package]
 name = "egomoose/rich-text-helper"
 description = "https://github.com/EgoMoose/rich-text-helper"
-version = "0.1.0"
+version = "0.2.0"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
 license = "MIT"
-ignore = ["test", "assets"]
+exclude = ["**"]
+include = ["src", "src/**", "wally.toml", "wally.lock", "default.project.json", "LICENSE"]
 
 [dependencies]
 Sift = "csqrl/sift@0.0.9"
