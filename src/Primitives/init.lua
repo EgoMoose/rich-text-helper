@@ -1,12 +1,12 @@
 --!strict
 
-local RichTextTypes = require(script:WaitForChild("RichTextTypes.d"))
+local RichTextTypes = require(script["RichTextTypes.d"])
 
 export type ParsedRichText = RichTextTypes.ParsedRichText
 
-local parse = require(script:WaitForChild("Parse"))
-local write = require(script:WaitForChild("Write"))
-local read = require(script:WaitForChild("Read"))
+local parse = require(script.Parse)
+local write = require(script.Write)
+local read = require(script.Read)
 
 -- Private
 

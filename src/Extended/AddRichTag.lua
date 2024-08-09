@@ -1,16 +1,16 @@
 --!strict
 
 local Package = script.Parent.Parent
-local Primitives = require(Package:WaitForChild("Primitives"))
+local Primitives = require(Package.Primitives)
 
 local Packages = Package.Parent
-local Sift = require(Packages:WaitForChild("Sift"))
+local Sift = require(Packages.Sift)
 
 type ParsedRichText = Primitives.ParsedRichText
 
 -- Public
 
-local function addTag(parsed: ParsedRichText, tag: string): ParsedRichText
+local function addRichTag(parsed: ParsedRichText, tag: string): ParsedRichText
 	local parsedClone = Sift.Dictionary.copyDeep(parsed)
 
 	local parsedTag = Primitives.parseSafe(tag)
@@ -25,4 +25,4 @@ end
 
 --
 
-return addTag
+return addRichTag

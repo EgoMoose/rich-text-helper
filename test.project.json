@@ -16,12 +16,6 @@
 		},
 		"ServerScriptService": {
 			"$className": "ServerScriptService",
-			"Debug": {
-				"$path": "test/Debug.server.lua",
-				"$properties": {
-					"Disabled": true
-				}
-			},
 			"TestRunner": {
 				"$path": "test/TestRunner.server.lua"
 			}

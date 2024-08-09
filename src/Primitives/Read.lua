@@ -1,6 +1,6 @@
 --!strict
 
-local RichTextTypes = require(script.Parent:WaitForChild("RichTextTypes.d"))
+local RichTextTypes = require(script.Parent["RichTextTypes.d"])
 
 type ParsedRichText = RichTextTypes.ParsedRichText
 

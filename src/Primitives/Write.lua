@@ -1,9 +1,9 @@
 --!strict
 
 local Packages = script.Parent.Parent.Parent
-local Sift = require(Packages:WaitForChild("Sift"))
+local Sift = require(Packages.Sift)
 
-local RichTextTypes = require(script.Parent:WaitForChild("RichTextTypes.d"))
+local RichTextTypes = require(script.Parent["RichTextTypes.d"])
 
 type ParsedRichText = RichTextTypes.ParsedRichText
 type RichProperties = RichTextTypes.RichProperties

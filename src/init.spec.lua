@@ -1,7 +1,6 @@
 --!strict
 
 local RichTextHelper = require(script.Parent)
-local TestHelper = require(script.Parent:WaitForChild("TestHelper"))
 
 local VALID_RICH_TEXT: { string } = {
 	-- all of these are taken from:
@@ -51,6 +50,75 @@ local INVALID_RICH_TEXT: { string } = {
 	"<uppercase>Uppercase</uc> makes words read loudly!", -- mismatch
 	"<b><i><u>Formatted Text</i></u></b>", -- incorrect nest exiting
 }
+
+-- Helpers
+
+local function flatten(unflattened: any): { [string]: any }
+	assert(typeof(unflattened) == "table", "unflattened argument is not a table")
+
+	local flattend = {}
+
+	local queue = { {
+		dict = unflattened,
+		path = {},
+	} }
+
+	while #queue > 0 do
+		local pop = table.remove(queue) :: any
+
+		for key, value in pairs(pop.dict) do
+			local path = table.clone(pop.path)
+			table.insert(path, key)
+
+			if type(value) == "table" then
+				table.insert(queue, {
+					dict = value,
+					path = path,
+				})
+			else
+				local hash = table.concat(path, "/")
+				flattend[hash] = value
+			end
+		end
+	end
+
+	return flattend
+end
+
+local function readRaw(richText: string)
+	local label = Instance.new("TextLabel")
+	label.RichText = true
+	label.Text = richText
+
+	local result = label.ContentText
+	label:Destroy()
+	return result
+end
+
+local function hash(t: any)
+	local flat = flatten(t)
+	local arr = {}
+
+	for key, value in flat do
+		table.insert(arr, {
+			key = key,
+			value = value,
+		})
+	end
+
+	table.sort(arr, function(a, b)
+		return a.key < b.key
+	end)
+
+	local lines = {}
+	for _, entry in arr do
+		table.insert(lines, ("%s: [%s]"):format(entry.key, tostring(entry.value)))
+	end
+
+	return table.concat(lines, "\n")
+end
+
+-- Tests
 
 return function()
 	describe("VALID", function()
@@ -105,7 +173,7 @@ return function()
 
 						expect(plain).to.be.a("string")
 
-						local plainRaw = TestHelper.readRaw(richText)
+						local plainRaw = readRaw(richText)
 						expect(plain).to.equal(plainRaw)
 					end)
 				end)
@@ -159,7 +227,7 @@ return function()
 							local b = charactersB[i]
 
 							expect(a.character).to.equal(b.character)
-							expect(TestHelper.hash(a.properties)).to.equal(TestHelper.hash(b.properties))
+							expect(hash(a.properties)).to.equal(hash(b.properties))
 						end
 
 						local commentsA = parsed.comments
@@ -217,7 +285,7 @@ return function()
 						end).never.to.throw()
 
 						expect(plain).to.be.a("string")
-						expect(plain).to.equal(TestHelper.readRaw(richText .. separator .. richText))
+						expect(plain).to.equal(readRaw(richText .. separator .. richText))
 					end)
 				end)
 

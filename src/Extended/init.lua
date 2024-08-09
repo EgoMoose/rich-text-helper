@@ -1,7 +1,7 @@
 --!strict
 
 return {
-	addTag = require(script:WaitForChild("AddTag")),
-	concat = require(script:WaitForChild("Concat")),
-	slice = require(script:WaitForChild("Slice")),
+	addRichTag = require(script.AddRichTag),
+	concat = require(script.Concat),
+	slice = require(script.Slice),
 }

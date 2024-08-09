@@ -1,7 +1,7 @@
 --!strict
 
-local Primitives = require(script:WaitForChild("Primitives"))
-local Extended = require(script:WaitForChild("Extended"))
+local Primitives = require(script.Primitives)
+local Extended = require(script.Extended)
 
 export type ParsedRichText = Primitives.ParsedRichText
 
@@ -14,5 +14,5 @@ return {
 
 	concat = Extended.concat,
 	slice = Extended.slice,
-	tag = Extended.addTag,
+	tag = Extended.addRichTag,
 }

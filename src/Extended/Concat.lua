@@ -1,7 +1,7 @@
 --!strict
 
 local Package = script.Parent.Parent
-local Primitives = require(Package:WaitForChild("Primitives"))
+local Primitives = require(Package.Primitives)
 
 type ParsedRichText = Primitives.ParsedRichText
 
