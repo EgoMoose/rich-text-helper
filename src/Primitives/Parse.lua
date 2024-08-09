@@ -39,6 +39,11 @@ local TAG_DEFINITIONS: { [string]: { TagDefinition } } = {
 				["face"] = function(input: string)
 					return input
 				end,
+				["features"] = function(input: string)
+					local features = input:split(",")
+					table.sort(features)
+					return table.concat(features, ",")
+				end,
 				["family"] = function(input: string)
 					return input
 				end,
@@ -199,7 +204,16 @@ local function processComment(state: ParseState, tagNoBrackets: string)
 end
 
 local function processTag(state: ParseState, tag: string)
-	local tagNoBrackets = string.sub(tag, 2, -2)
+	local tagNoBrackets = string.gsub(
+		string.gsub(string.sub(tag, 2, -2), '%b""', function(matched)
+			return string.gsub(matched, "%s+", "")
+		end),
+		"%b''",
+		function(matched)
+			return string.gsub(matched, "%s+", "")
+		end
+	)
+
 	local tagNoBracketsFirstWord = string.match(tagNoBrackets, "^[^%s]+")
 	local tagNoBracketsNoWhitespace = string.gsub(tagNoBrackets, "%s", "")
 
@@ -226,6 +240,10 @@ local function processTag(state: ParseState, tag: string)
 					local flatProperties: { FlatProperty } = {}
 					for _, text in splitTag do
 						local property, valueWithQuotes = string.match(text, '([^=]+)=(%b"")')
+						if not (property and valueWithQuotes) then
+							property, valueWithQuotes = string.match(text, "([^=]+)=(%b'')")
+						end
+
 						if property and valueWithQuotes then
 							local noQuotes = string.sub(valueWithQuotes, 2, -2)
 							local transformer = definition.transformers and definition.transformers[property]
