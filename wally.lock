@@ -4,13 +4,13 @@ registry = "test"
 
 [[package]]
 name = "csqrl/sift"
-version = "0.0.8"
+version = "0.0.9"
 dependencies = []
 
 [[package]]
 name = "egomoose/rich-text-helper"
 version = "0.1.0"
-dependencies = [["Sift", "csqrl/sift@0.0.8"], ["TestEZ", "roblox/testez@0.4.1"]]
+dependencies = [["Sift", "csqrl/sift@0.0.9"], ["TestEZ", "roblox/testez@0.4.1"]]
 
 [[package]]
 name = "roblox/testez"

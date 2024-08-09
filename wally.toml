@@ -8,7 +8,7 @@ license = "MIT"
 ignore = ["test", "assets"]
 
 [dependencies]
-Sift = "csqrl/sift@0.0.8"
+Sift = "csqrl/sift@0.0.9"
 
 [dev-dependencies]
 TestEZ = "roblox/testez@0.4.1"
